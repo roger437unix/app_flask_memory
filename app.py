@@ -1,9 +1,19 @@
-# 09/02/2024
-# App flask com dados apenas em memória
+"""
+09/02/2024
 
-# pip install -r requirements.txt
-# or
-# pip install flask 
+=> App flask com dados apenas em memória <=
+
+python -m venv .venv
+
+source .venv/bin/activate         [Linux]
+source .venv/Scripts/activate     [Windows]
+
+pip install -r requirements.txt
+or
+pip install flask 
+
+"""
+
 
 from flask import Flask, render_template, request, redirect, url_for
 import os
@@ -62,4 +72,3 @@ def delete(lista_nome):
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
-
