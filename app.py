@@ -46,8 +46,18 @@ def add():
 
 @app.post("/sort")
 def sort():
-    print(f'** Ordenando a lista **')
-    lista.sort()    
+    if lista != []:
+        print(f'** Ordenando a lista **')
+        lista.sort()    
+    return redirect(url_for("home"))
+
+
+@app.post("/reverse")
+def reverse():
+    global lista   
+    if lista != []:                
+        print(f'** Invertendo a lista **')        
+        lista = sorted(lista, reverse=True, key=lambda x: x[0])
     return redirect(url_for("home"))
 
 
