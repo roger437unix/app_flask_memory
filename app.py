@@ -1,5 +1,5 @@
 """
-09/02/2024
+25/02/2024
 
 => App flask com dados apenas em memória <=
 
@@ -14,17 +14,17 @@ pip install flask
 
 """
 
-
 from flask import Flask, render_template, request, redirect, url_for
-import os
+from seunome import config
 
 app = Flask(__name__)
 
+dados = [[config['username']]]
 lista = []
 
 @app.get("/")
-def home():    
-    return render_template("base.html", lista_front=lista)
+def home():
+    return render_template("base.html", lista_front=lista, lista_dados=dados)
 
 
 @app.post("/add")
@@ -81,4 +81,4 @@ def delete(lista_nome):
        
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
